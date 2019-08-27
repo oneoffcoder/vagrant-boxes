@@ -64,4 +64,11 @@ vagrant cloud publish \
 
 # Usage
 
-If you just want to use the box, see [usage/Vagrantfile](usage/Vagrantfile).
+If you just want to use the box.
+
+```bash
+vagrant init oneoffcoder/development --box-version 0.0.1
+vagrant up
+```
+
+If you want to customize the box, see [usage/Vagrantfile](usage/Vagrantfile).
