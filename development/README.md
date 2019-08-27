@@ -61,3 +61,7 @@ vagrant cloud publish \
     --force \
     --release
 ```
+
+# Usage
+
+If you just want to use the box, see [usage/Vagrantfile](usage/Vagrantfile).

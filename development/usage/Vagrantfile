@@ -1,0 +1,30 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+require 'date'
+
+Vagrant.configure("2") do |config|
+  hostName = "oneoffcoder-#{DateTime.now.strftime('%Q')}"
+  postUpMessage = <<-MSG
+  Login/Password: vagrant/vagrant
+
+  A vagrant box for learning.
+
+  One-Off Coder
+  info@oneoffcoder.com
+  https://www.oneoffcoder.com
+  MSG
+  
+  config.vm.box = "oneoffcoder/development"
+  config.vm.box_version = "0.0.1"
+  config.vm.hostname = hostName
+  config.vm.post_up_message = postUpMessage
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = true
+  
+    vb.memory = "5120"
+    vb.cpus = 4
+    vb.customize ["modifyvm", :id, "--cpuexecutioncap", "100"]
+    vb.name = hostName
+  end
+end
