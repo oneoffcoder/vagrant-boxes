@@ -45,5 +45,16 @@ vagrant package
 To publish.
 
 ```bash
-vagrant cloud publish oneoffcoder/development 0.0.1 virtualbox package.box --description "Ubuntu 19.04 Desktop with Java, Scala, Python, Node and Docker" --force --release
+# login
+vagrant cloud auth login
+
+# publish
+vagrant cloud publish \
+    oneoffcoder/development \
+    0.0.1 \
+    virtualbox \
+    package.box \
+    --description "Ubuntu 19.04 Desktop with Java, Scala, Python, Node and Docker" \
+    --force \
+    --release
 ```
