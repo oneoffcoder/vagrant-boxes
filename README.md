@@ -18,6 +18,12 @@ To bring up.
 vagrant up
 ```
 
+To shutdown.
+
+```bash
+vagrant halt
+```
+
 To destroy.
 
 ```bash
@@ -28,4 +34,23 @@ To SSH into the VM. The login/password is `vagrant/vagrant`.
 
 ```bash
 vagrant ssh
+```
+
+To package.
+
+```bash
+vagrant package
+```
+
+To publish.
+
+```bash
+vagrant cloud publish \
+    oneoffcoder/development \
+    0.0.1 \
+    virtualbox \
+    package.box \
+    --description "Ubuntu 19.04 Desktop with Java, Python and Node" \
+    --force \
+    --release
 ```
