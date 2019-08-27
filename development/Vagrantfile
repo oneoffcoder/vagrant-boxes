@@ -127,6 +127,8 @@ Vagrant.configure("2") do |config|
     apt-get install -y docker-ce docker-ce-cli containerd.io
     usermod -aG docker vagrant
     # MINICONDA INSTALL
+    mkdir /home/vagrant/.conda
+    chown -R vagrant:vagrant /home/vagrant/.conda
     wget -q https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh
     /bin/bash /tmp/miniconda.sh -b -p /home/vagrant/miniconda
     /home/vagrant/miniconda/bin/conda update -n root conda -q -y
