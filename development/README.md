@@ -48,6 +48,8 @@ To publish.
 ```bash
 # login
 vagrant cloud auth login
+# whoami
+vagrant cloud auth whoami
 
 # publish
 vagrant cloud publish \
