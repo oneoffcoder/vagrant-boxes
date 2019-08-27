@@ -1,0 +1,155 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+require 'date'
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+  hostName = "oneoffcoder-#{DateTime.now.strftime('%Q')}"
+  postUpMessage = <<-MSG
+  Login/Password: vagrant/vagrant
+
+  A vagrant box for learning.
+
+  One-Off Coder
+  info@oneoffcoder.com
+  https://www.oneoffcoder.com
+  MSG
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://vagrantcloud.com/search.
+  config.vm.box = "iocoder/ubuntu-desktop-19.04-x86"
+  config.vm.box_version = "0.0.1"
+  config.vm.hostname = hostName
+  config.vm.post_up_message = postUpMessage
+
+  # Disable automatic box update checking. If you disable this, then
+  # boxes will only be checked for updates when the user runs
+  # `vagrant box outdated`. This is not recommended.
+  # config.vm.box_check_update = false
+
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine. In the example below,
+  # accessing "localhost:8080" will access port 80 on the guest machine.
+  # NOTE: This will enable public access to the opened port
+  # config.vm.network "forwarded_port", guest: 80, host: 8080
+
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine and only allow access
+  # via 127.0.0.1 to disable public access
+  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+
+  # Create a private network, which allows host-only access to the machine
+  # using a specific IP.
+  # config.vm.network "private_network", ip: "192.168.33.10"
+
+  # Create a public network, which generally matched to bridged network.
+  # Bridged networks make the machine appear as another physical device on
+  # your network.
+  # config.vm.network "public_network"
+
+  # Share an additional folder to the guest VM. The first argument is
+  # the path on the host to the actual folder. The second argument is
+  # the path on the guest to mount the folder. And the optional third
+  # argument is a set of non-required options.
+  # config.vm.synced_folder "../data", "/vagrant_data"
+
+  # Provider-specific configuration so you can fine-tune various
+  # backing providers for Vagrant. These expose provider-specific options.
+  # Example for VirtualBox:
+  #
+  config.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    vb.gui = true
+  
+    # Customize the amount of memory on the VM:
+    vb.memory = "5120"
+    vb.cpus = 4
+    vb.customize ["modifyvm", :id, "--cpuexecutioncap", "100"]
+    vb.name = hostName
+  end
+  #
+  # View the documentation for the provider you are using for more
+  # information on available options.
+
+  # Enable provisioning with a shell script. Additional provisioners such as
+  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
+  # documentation for more information about their specific syntax and use.
+  config.vm.provision "shell", inline: <<-SHELL
+    # APT INSTALL
+    killall apt apt-get
+    rm -f /var/lib/apt/lists/lock
+    rm -f /var/cache/apt/archives/lock
+    rm -f /var/lib/dpkg/lock*
+    apt-get update
+    apt-get upgrade -y
+    # JAVA
+    apt-get install -y openjdk-8-jdk
+    wget -q http://ftp.wayne.edu/apache/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz -O /tmp/maven.tar.gz
+    wget -q http://apache-mirror.8birdsvideo.com//ant/binaries/apache-ant-1.9.14-bin.tar.gz -O /tmp/ant.tar.gz
+    wget -q http://apache.mirrors.ionfish.org//ant/ivy/2.5.0-rc1/apache-ivy-2.5.0-rc1-bin.tar.gz -O /tmp/ivy.tar.gz
+    wget -q https://piccolo.link/sbt-1.2.8.tgz -O /tmp/sbt.tgz
+    tar xfz /tmp/maven.tar.gz -C /home/vagrant/
+    tar xfz /tmp/ant.tar.gz -C /home/vagrant/
+    tar xfz /tmp/ivy.tar.gz -C /tmp/
+    tar xfz /tmp/sbt.tgz -C /home/vagrant/
+    ln -s /home/vagrant/apache-maven-3.6.1/ /home/vagrant/maven
+    ln -s /home/vagrant/apache-ant-1.9.14 /home/vagrant/ant
+    cp /tmp/apache-ivy-2.5.0-rc1/ivy-2.5.0-rc1.jar /home/vagrant/ant/lib
+    # NODE
+    wget -q https://nodejs.org/dist/v12.9.1/node-v12.9.1-linux-x64.tar.xz -O /tmp/node.tar.xz
+    tar -xJf /tmp/node.tar.xz -C /home/vagrant/
+    ln -s /home/vagrant/node-v12.9.1-linux-x64/ /home/vagrant/node
+    ln -s /home/vagrant/node/bin/node /usr/bin/node
+    ln -s /home/vagrant/node/bin/npm /usr/bin/npm
+    ln -s /home/vagrant/node/bin/npx /usr/bin/npx
+    npm install -g @angular/cli -y
+    # DOCKER INSTALL
+    apt-get install -y \
+      apt-transport-https \
+      ca-certificates \
+      curl \
+      gnupg-agent \
+      software-properties-common
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    apt-key fingerprint 0EBFCD88
+    add-apt-repository \
+      "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+      $(lsb_release -cs) \
+      stable"
+    apt-get update
+    apt-get install -y docker-ce docker-ce-cli containerd.io
+    usermod -aG docker vagrant
+    # MINICONDA INSTALL
+    wget -q https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh
+    /bin/bash /tmp/miniconda.sh -b -p /home/vagrant/miniconda
+    /home/vagrant/miniconda/bin/conda update -n root conda -q -y
+    /home/vagrant/miniconda/bin/conda update --all -q -y
+    /home/vagrant/miniconda/bin/pip install --upgrade pip
+    /home/vagrant/miniconda/bin/conda install -q -y flask flask-cors numpy scipy scikit-learn pymysql jupyter jupyterlab
+    # PATH SETUP
+    echo "CONDA_HOME=/home/vagrant/miniconda" >> /home/vagrant/.bashrc
+    echo "MAVEN_HOME=/home/vagrant/maven" >> /home/vagrant/.bashrc
+    echo "ANT_HOME=/home/vagrant/ant" >> /home/vagrant/.bashrc
+    echo "SBT_HOME=/home/vagrant/sbt" >> /home/vagrant/.bashrc
+    echo "NODE_HOME=/home/vagrant/node" >> /home/vagrant/.bashrc
+    echo 'PATH=$CONDA_HOME/bin:$PATH' >> /home/vagrant/.bashrc
+    echo 'PATH=$MAVEN_HOME/bin:$PATH' >> /home/vagrant/.bashrc
+    echo 'PATH=$ANT_HOME/bin:$PATH' >> /home/vagrant/.bashrc
+    echo 'PATH=$SBT_HOME/bin:$PATH' >> /home/vagrant/.bashrc
+    echo 'PATH=$NODE_HOME/bin:$PATH' >> /home/vagrant/.bashrc
+    # CLEAN UP
+    apt-get autoremove -y
+    sudo rm -fr /var/lib/apt/lists/* \
+      /tmp/* \
+      /var/tmp/* \
+      /var/cache/apt/archives/lock \
+      /var/lib/dpkg/lock*
+    history -c
+  SHELL
+end
