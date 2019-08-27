@@ -1,5 +1,5 @@
 # Purpose
-![Alt](/logo.png "One-Off Coder")
+![Alt](/logo.png "One-Off Coder" =250x)
 
 [One-Off Coder Vagrant Profile](https://app.vagrantup.com/oneoffcoder)
 
