@@ -1,9 +1,4 @@
 # Purpose
-[One-Off Coder](https://app.vagrantup.com/oneoffcoder) 
-* [https://www.oneoffcoder.com](https://www.oneoffcoder.com)
-* [Twitter](https://twitter.com/oneoffcoder)
-* [Facebook](https://www.facebook.com/oneoffcoder)
-* [YouTube](https://www.youtube.com/channel/UCCCv8Glpb2dq2mhUj5mcHCQ)
 
 ![One-Off Coder Logo](/logo.png "One-Off Coder")
 
@@ -40,3 +35,11 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
+
+# Contact
+
+[One-Off Coder](https://app.vagrantup.com/oneoffcoder) 
+* [Website](https://www.oneoffcoder.com)
+* [Twitter](https://twitter.com/oneoffcoder)
+* [Facebook](https://www.facebook.com/oneoffcoder)
+* [YouTube](https://www.youtube.com/channel/UCCCv8Glpb2dq2mhUj5mcHCQ)
