@@ -9,6 +9,7 @@ A vagrant box with
 * Ant v1.9.14
 * SBT v1.2.8
 * Node v12.9.1
+* VS Code (latest)
 
 # Use
 
@@ -54,7 +55,7 @@ vagrant cloud publish \
     0.0.1 \
     virtualbox \
     package.box \
-    --description "Ubuntu 19.04 Desktop with Java, Scala, Python, Node and Docker" \
+    --description "Ubuntu 19.04 Desktop with Java, Scala, Python, Node, Docker and VS Code" \
     --force \
     --release
 ```
