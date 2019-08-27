@@ -1,10 +1,11 @@
 # Purpose
+![Alt](/logo.png "One-Off Coder")
+
+[One-Off Coder Vagrant Profile](https://app.vagrantup.com/oneoffcoder)
 
 A collection of Vagrant boxes for learning purposes.
 
 * [development](development): [A vagrant box with Java, Scala, Python, Node and Docker on Ubuntu Desktop v19.04](https://app.vagrantup.com/oneoffcoder/boxes/development).
-
-[One-Off Coder Vagrant Profile](https://app.vagrantup.com/oneoffcoder)
 
 # Citation
 
