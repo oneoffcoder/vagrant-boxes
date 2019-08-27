@@ -7,7 +7,8 @@ require 'date'
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure("2") do |config|
-  hostName = "oneoffcoder-#{DateTime.now.strftime('%Q')}"
+  # hostName = "oneoffcoder-#{DateTime.now.strftime('%Q')}"
+  hostName = "oneoffcoder-development"
   postUpMessage = <<-MSG
   Login/Password: vagrant/vagrant
 
@@ -131,7 +132,9 @@ Vagrant.configure("2") do |config|
     /home/vagrant/miniconda/bin/conda update -n root conda -q -y
     /home/vagrant/miniconda/bin/conda update --all -q -y
     /home/vagrant/miniconda/bin/pip install --upgrade pip
-    /home/vagrant/miniconda/bin/conda install -q -y flask flask-cors numpy scipy scikit-learn pymysql seaborn matplotlib nltk spacy gensim jupyter jupyterlab
+    /home/vagrant/miniconda/bin/conda install -q -y flask flask-cors numpy scipy scikit-learn pymysql seaborn matplotlib nltk spacy gensim networkx joblib jupyter jupyterlab shap lime textblob -c conda-forge
+    /home/vagrant/miniconda/bin/python -m nltk.downloader all
+    /home/vagrant/miniconda/bin/python -m spacy download en_core_web_sm
     # PATH SETUP
     echo "CONDA_HOME=/home/vagrant/miniconda" >> /home/vagrant/.bashrc
     echo "MAVEN_HOME=/home/vagrant/maven" >> /home/vagrant/.bashrc
