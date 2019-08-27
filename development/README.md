@@ -1,6 +1,6 @@
 # Purpose
 
-A vagrant box with
+A [vagrant box](https://app.vagrantup.com/oneoffcoder/boxes/development) with
 
 * Docker (latest)
 * Miniconda v3 with Python 3.7

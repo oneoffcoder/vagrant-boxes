@@ -2,7 +2,7 @@
 
 A collection of Vagrant boxes for learning purposes.
 
-* [development](development): A vagrant box with Java, Scala, Python, Node and Docker on Ubuntu Desktop v19.04.
+* [development](development): [A vagrant box with Java, Scala, Python, Node and Docker on Ubuntu Desktop v19.04](https://app.vagrantup.com/oneoffcoder/boxes/development).
 
 # Citation
 
