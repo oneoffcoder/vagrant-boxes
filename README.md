@@ -50,7 +50,7 @@ vagrant cloud publish \
     0.0.1 \
     virtualbox \
     package.box \
-    --description "Ubuntu 19.04 Desktop with Java, Python and Node" \
+    --description "Ubuntu 19.04 Desktop with Java, Scala, Python, Node and Docker" \
     --force \
     --release
 ```
