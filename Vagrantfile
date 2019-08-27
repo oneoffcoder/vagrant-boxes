@@ -131,7 +131,7 @@ Vagrant.configure("2") do |config|
     /home/vagrant/miniconda/bin/conda update -n root conda -q -y
     /home/vagrant/miniconda/bin/conda update --all -q -y
     /home/vagrant/miniconda/bin/pip install --upgrade pip
-    /home/vagrant/miniconda/bin/conda install -q -y flask flask-cors numpy scipy scikit-learn pymysql jupyter jupyterlab
+    /home/vagrant/miniconda/bin/conda install -q -y flask flask-cors numpy scipy scikit-learn pymysql seaborn matplotlib nltk spacy gensim jupyter jupyterlab
     # PATH SETUP
     echo "CONDA_HOME=/home/vagrant/miniconda" >> /home/vagrant/.bashrc
     echo "MAVEN_HOME=/home/vagrant/maven" >> /home/vagrant/.bashrc
@@ -149,7 +149,8 @@ Vagrant.configure("2") do |config|
       /tmp/* \
       /var/tmp/* \
       /var/cache/apt/archives/lock \
-      /var/lib/dpkg/lock*
+      /var/lib/dpkg/lock* \
+      /home/vagrant/Downloads/*
     history -c
   SHELL
 end
