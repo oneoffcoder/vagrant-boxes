@@ -1,7 +1,11 @@
 # Purpose
-![](/logo.png "One-Off Coder")
+[One-Off Coder](https://app.vagrantup.com/oneoffcoder) 
+* [https://www.oneoffcoder.com](https://www.oneoffcoder.com)
+* [Twitter](https://twitter.com/oneoffcoder)
+* [Facebook](https://www.facebook.com/oneoffcoder)
+* [YouTube](https://www.youtube.com/channel/UCCCv8Glpb2dq2mhUj5mcHCQ)
 
-[One-Off Coder Vagrant Profile](https://app.vagrantup.com/oneoffcoder)
+![One-Off Coder Logo](/logo.png "One-Off Coder")
 
 A collection of Vagrant boxes for learning purposes.
 
