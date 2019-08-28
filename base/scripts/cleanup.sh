@@ -4,3 +4,10 @@ apt-get remove -y --purge libreoffice* thunderbird* rhythmbox* aisleriot gnome-s
 apt-get clean
 apt-get autoremove
 echo 'Hidden=true' | cat /usr/share/applications/ubuntu-amazon-default.desktop - > ~/.local/share/applications/ubuntu-amazon-default.desktop
+rm -fr /var/lib/apt/lists/* \
+    /tmp/* \
+    /var/tmp/* \
+    /var/cache/apt/archives/lock \
+    /var/lib/dpkg/lock* \
+    /home/vagrant/Downloads/*
+history -c
