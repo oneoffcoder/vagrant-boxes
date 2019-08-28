@@ -139,6 +139,8 @@ Vagrant.configure("2") do |config|
     # VS Code
     snap install --classic code
     # ADDITIONAL APT
+    apt-get autoclean
+    apt-get clean
     apt-get install -y libgraphviz-dev
     # PATH SETUP
     echo "CONDA_HOME=/home/vagrant/miniconda" >> /home/vagrant/.bashrc
@@ -153,6 +155,8 @@ Vagrant.configure("2") do |config|
     echo 'PATH=$NODE_HOME/bin:$PATH' >> /home/vagrant/.bashrc
     # CLEAN UP
     apt-get autoremove -y
+    apt-get autoclean
+    apt-get clean
     sudo rm -fr /var/lib/apt/lists/* \
       /tmp/* \
       /var/tmp/* \
