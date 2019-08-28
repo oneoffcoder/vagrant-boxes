@@ -3,7 +3,7 @@
 A [Packer](https://www.packer.io/) project to create an Ubuntu Desktop v19.04 x64 VirtualBox image. 
 
 ```bash
-packer build ubuntu-16.04-x64.json
+packer build ubuntu-desktop-19.04-x64.json
 ```
 
 To publish.
