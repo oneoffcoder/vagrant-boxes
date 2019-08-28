@@ -2,3 +2,4 @@
 .DS_Store
 *.box
 packer_cache/
+builds/
