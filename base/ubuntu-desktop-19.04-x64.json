@@ -107,7 +107,7 @@
       "box_basename": "ubuntu-desktop-19.04-x64",
       "build_timestamp": "{{isotime \"20060102150405\"}}",
       "cpus": "4",
-      "disk_size": "15000",
+      "disk_size": "25000",
       "cpuexecutioncap": "100",
       "git_revision": "__unknown_git_revision__",
       "headless": "",
