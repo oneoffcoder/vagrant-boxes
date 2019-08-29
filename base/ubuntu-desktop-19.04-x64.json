@@ -96,9 +96,9 @@
           "scripts/networking.sh",
           "scripts/sudoers.sh",
           "scripts/desktop.sh",
+          "scripts/cleanup.sh",
           "scripts/vagrant.sh",
           "scripts/virtualbox.sh",
-          "scripts/cleanup.sh",
           "scripts/minimize.sh"
         ],
         "type": "shell"
