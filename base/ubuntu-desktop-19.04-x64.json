@@ -125,7 +125,7 @@
       "preseed_path": "preseed.cfg",
       "template": "ubuntu-desktop-19.04-x64",
       "version": "TIMESTAMP",
-      "vram": "128"
+      "vram": "256"
     }
   }
   
