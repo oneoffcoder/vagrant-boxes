@@ -22,6 +22,7 @@ vagrant up
 ```
 
 To remove local box.
+
 ```bash
 vagrant box remove ubuntu-desktop-19.04-x86-base
 ```
