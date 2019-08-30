@@ -41,7 +41,9 @@ vagrant cloud publish \
     0.0.1 \
     virtualbox \
     builds/ubuntu-desktop-19.04-x64.virtualbox.box \
-    --description "Ubuntu 19.04 Desktop" \
+    --description "Ubuntu Desktop v19.04 from Packer" \
+    --short-description "Base Box, Ubuntu" \
+    --version-description "v0.0.1" \
     --force \
     --release
 ```
