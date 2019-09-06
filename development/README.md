@@ -54,11 +54,21 @@ vagrant cloud auth whoami
 # publish
 vagrant cloud publish \
     oneoffcoder/development \
-    0.0.1 \
+    0.0.2 \
     virtualbox \
     package.box \
     --description "Ubuntu 19.04 Desktop with Java, Scala, Python, Node, Docker and VS Code" \
     --force \
+    --release
+
+# publish on windows
+vagrant cloud publish ^
+    oneoffcoder/development ^
+    0.0.2 ^
+    virtualbox ^
+    package.box ^
+    --description "Ubuntu 19.04 Desktop with Java, Scala, Python, Node, Docker and VS Code" ^
+    --force ^
     --release
 ```
 
