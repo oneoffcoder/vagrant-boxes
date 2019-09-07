@@ -136,6 +136,7 @@ Vagrant.configure("2") do |config|
     /home/vagrant/miniconda/bin/conda install -q -y flask flask-cors numpy scipy scikit-learn pymysql seaborn matplotlib nltk spacy gensim networkx joblib jupyter jupyterlab shap lime textblob nose coverage flake8 pep8 pyflakes pandas matplotlib pygraphviz sphinx sphinx_rtd_theme twine -c conda-forge
     /home/vagrant/miniconda/bin/python -m nltk.downloader all
     /home/vagrant/miniconda/bin/python -m spacy download en_core_web_sm
+    chown -R vagrant:vagrant /home/vagrant/miniconda
     # VS Code
     snap install --classic code
     # ADDITIONAL APT
