@@ -40,7 +40,7 @@ vagrant ssh
 To package.
 
 ```bash
-vagrant package
+vagrant package --output ubuntu-desktop-19.04-x86-v0.0.3.box
 ```
 
 To publish.
@@ -54,9 +54,9 @@ vagrant cloud auth whoami
 # publish
 vagrant cloud publish \
     oneoffcoder/development \
-    0.0.2 \
+    0.0.3 \
     virtualbox \
-    package.box \
+    ubuntu-desktop-19.04-x86-v0.0.3.box \
     --description "Ubuntu 19.04 Desktop with Java, Scala, Python, Node, Docker and VS Code" \
     --force \
     --release
@@ -64,9 +64,9 @@ vagrant cloud publish \
 # publish on windows
 vagrant cloud publish ^
     oneoffcoder/development ^
-    0.0.2 ^
+    0.0.3 ^
     virtualbox ^
-    package.box ^
+    ubuntu-desktop-19.04-x86-v0.0.3.box ^
     --description "Ubuntu 19.04 Desktop with Java, Scala, Python, Node, Docker and VS Code" ^
     --force ^
     --release
