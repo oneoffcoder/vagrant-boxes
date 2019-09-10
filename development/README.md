@@ -56,7 +56,7 @@ vagrant cloud publish \
     oneoffcoder/development \
     0.0.4 \
     virtualbox \
-    ubuntu-desktop-19.04-x86-v0.0.3.box \
+    ubuntu-desktop-19.04-x86-v0.0.4.box \
     --description "Ubuntu 19.04 Desktop with Java, Scala, Python, Node, Docker and VS Code" \
     --force \
     --release
@@ -66,7 +66,7 @@ vagrant cloud publish ^
     oneoffcoder/development ^
     0.0.4 ^
     virtualbox ^
-    ubuntu-desktop-19.04-x86-v0.0.3.box ^
+    ubuntu-desktop-19.04-x86-v0.0.4.box ^
     --description "Ubuntu 19.04 Desktop with Java, Scala, Python, Node, Docker and VS Code" ^
     --force ^
     --release
