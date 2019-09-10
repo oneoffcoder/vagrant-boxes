@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
   MSG
   
   config.vm.box = "oneoffcoder/development"
-  config.vm.box_version = "0.0.3"
+  config.vm.box_version = "0.0.4"
   config.vm.hostname = hostName
   config.vm.post_up_message = postUpMessage
 
